@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            background-color: antiquewhite;
+            padding: 40px 100px;
+        }
+
+        .modal.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="delete-btn">Delete account</button>
+
+    <div class="modal">
+        <span class="modal-title">Are you sure want to delete your account?</span>
+        <div class="modal-btns">
+            <button class="modal-cancel-btn">Cancel</button>
+            <button class="modal-delete-btn">Delete</button>
+        </div>
+    </div>
+
+    <script>
+        const deleteBtn = document.querySelector('.delete-btn');
+        const modal = document.querySelector('.modal');
+        const modalCancelBtn = document.querySelector('.modal-cancel-btn');
+        const modalDeleteBtn = document.querySelector('.modal-delete-btn');
+
+        deleteBtn.onclick = () => {
+            modal.classList.add('active')
+        }
+        modalCancelBtn.onclick = () => {
+            modal.classList.remove('active');
+        }
+        modalDeleteBtn.onclick = () => {
+            modal.classList.remove('active');
+            deleteBtn.innerHTML = 'Deleted'
+            deleteBtn.onclick = null
+            deleteBtn.disabled = true
+            console.log(deleteBtn);
+        }
+    </script>
+</body>
+
+</html>
