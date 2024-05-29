@@ -55,7 +55,7 @@
 
         let notiCount = 0;
         button.onclick = () => {
-            if (notiCount > 99) {
+            if (notiCount >= 99) {
                 span.innerText = '99+';
                 button.onclick = () => { return false };
             } else {
