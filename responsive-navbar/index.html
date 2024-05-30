@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+
+    <style>
+        :root {
+            --container-width-lg: 85%;
+            --container-width-md: 90%;
+            --container-width-sm: 95%;
+            --nav-height: 100px;
+
+            --jelly-bean: #2A8CA3;
+            --papa-green: #1D343B;
+            --jet-stream: #c1d8d5;
+            --fountain-blue: #63b3c1;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: var(--container-width-lg);
+            max-width: 1440px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background-color: var(--jelly-bean);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            user-select: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            list-style-type: none;
+        }
+
+        .nav-links li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 16px 32px;
+            border-radius: 5px;
+            user-select: none;
+        }
+
+        .nav-open-btn,
+        .nav-close-btn {
+            display: none;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+            padding-top: var(--nav-height);
+        }
+
+        .header-container h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+            color: white;
+        }
+
+        .header-container p {
+            width: 75ch;
+            font-size: 20px;
+            line-height: 1.4;
+            color: white;
+            text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+        }
+
+        @media (width <=1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .header-container h1 {
+                font-size: 35px;
+            }
+
+            .header-container p {
+                width: 45ch;
+            }
+        }
+
+        @media (width < 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                align-items: end;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li a {
+                width: fit-content;
+            }
+
+            .nav-close-btn,
+            .nav-open-btn {
+                border: none;
+                background-color: transparent;
+                color: white;
+                cursor: pointer;
+                height: 48px;
+                width: 48px;
+            }
+
+            .nav-close-btn.active,
+            .nav-open-btn.active {
+                display: block;
+            }
+
+
+
+            .header-container {
+                text-align: center;
+            }
+
+            .header-container p {
+                margin: 0 auto;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container container">
+            <a href="#" class="logo">IndieX</a>
+            <button class="nav-open-btn active"><span class="material-symbols-outlined">
+                    menu
+                </span></button>
+            <button class="nav-close-btn"><span class="material-symbols-outlined">
+                    close
+                </span></button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div class="header-container container">
+            <h1>Transform Ideas into Reality</h1>
+            <p>Unlock your creative potential and bring your visions to life. Whether you're an entrepreneur, artist, or
+                professional,
+                our guide provides the essential tools and strategies to turn your concepts into tangible successes.
+                Discover how to:</p>
+        </div>
+    </header>
+
+    <script>
+        const navOpenBtn = document.querySelector('.nav-open-btn')
+        const navCloseBtn = document.querySelector('.nav-close-btn')
+        const navLinks = document.querySelector('.nav-links')
+        const navLinkItems = document.querySelectorAll('.nav-links li a')
+
+        navOpenBtn.onclick = () => {
+            navOpenBtn.classList.remove('active')
+            navCloseBtn.classList.add('active')
+            navLinks.classList.add('active')
+        }
+        navCloseBtn.onclick = () => {
+            navCloseBtn.classList.remove('active')
+            navOpenBtn.classList.add('active')
+            navLinks.classList.remove('active')
+        }
+        
+        navLinkItems.forEach(item => {
+            item.onclick = () => {
+                navCloseBtn.classList.remove('active')
+                navOpenBtn.classList.add('active')
+                navLinks.classList.remove('active')
+            }
+        })
+    </script>
+</body>
+
+</html>
