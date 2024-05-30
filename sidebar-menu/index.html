@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        :root {
+            --nav-width: 250px;
+        }
+
+        main {
+            display: flex;
+            gap: 80px;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 0;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding-top: 100px;
+            border-right: 1px solid rgb(173, 173, 173);
+            overflow: hidden;
+            transition: all 0.2s linear;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 16px 32px;
+            color: black;
+        }
+
+        nav a.active {
+            color: orange;
+            border-left: 5px solid orange;
+        }
+
+        nav.active {
+            width: var(--nav-width);
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            padding-bottom: 200px;
+        }
+
+        .container section:nth-child(1) {
+            padding-top: 116px;
+        }
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        section p {
+            line-height: 1.5;
+            width: 100ch;
+        }
+
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            height: 26px;
+            width: 26px;
+            justify-content: space-around;
+            cursor: pointer;
+            padding: 2px;
+            box-sizing: content-box;
+            position: fixed;
+            top: 20px;
+            left: 32px;
+
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            background: #000;
+            border-radius: 5px;
+            transition: all 0.2s linear;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            position: absolute;
+            width: 90%;
+            transform: rotate(-45deg);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            position: absolute;
+            width: 90%;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#testimonial">Testimonial</a>
+        </nav>
+        <div class="container">
+            <section>
+                <h2 id="home">Home</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptatibus veritatis adipisci
+                    officia deserunt minus dolorum quaerat libero est itaque ratione incidunt autem laborum quibusdam,
+                    similique delectus. Dolorem, enim repellendus?
+                    Quis nulla tempora mollitia placeat laudantium repudiandae nihil dignissimos eveniet facilis? Totam
+                    expedita iusto porro eligendi fuga inventore quod numquam in quibusdam id. Dolores exercitationem,
+                    officia quam minima corrupti obcaecati.
+                    Repudiandae ipsum iure, quos excepturi dicta doloribus reiciendis libero, rerum rem iste, voluptate
+                    expedita obcaecati qui necessitatibus ipsa. Consequatur distinctio exercitationem laboriosam minus
+                    accusamus quibusdam perspiciatis, quam suscipit ut! Inventore.
+                    Hic recusandae, sequi quod est ut placeat incidunt eaque, ab, atque sed ipsum at a qui facilis
+                    aperiam? Aliquam commodi et iste est consequatur dolor itaque id illo rem ut?
+                    Fuga error, voluptate accusamus possimus neque quis excepturi libero itaque, vero eum nam. Facilis
+                    impedit earum nihil officia iste perspiciatis quibusdam eaque? A recusandae impedit hic mollitia
+                    suscipit nihil cupiditate!
+                    Natus, dolorum pariatur! Doloremque itaque amet accusamus! Consequatur porro ex dignissimos impedit,
+                    molestiae corrupti iste perferendis magnam odit ipsum similique repellat fugiat ipsam, fugit ea
+                    recusandae ut alias. Illo, est.
+                    Voluptatibus excepturi dolor, ullam dignissimos sed, id corrupti animi ad debitis numquam
+                    consequuntur quisquam sequi, inventore voluptatem nesciunt. Soluta doloribus dolorum porro obcaecati
+                    nam, fuga quam error autem magnam repudiandae.
+                    Voluptates, natus eos et error exercitationem quasi officiis? Vero minus ipsa quo cupiditate dolor
+                    perspiciatis, eius distinctio officiis. Dolor aliquam molestiae libero eaque hic quo? Minus quam
+                    numquam inventore magnam!
+                    Doloremque explicabo, unde repellat reiciendis molestias aliquam? Fugiat quas odit ducimus nostrum
+                    obcaecati blanditiis repellendus tempora natus! Doloremque qui harum suscipit blanditiis? Veritatis
+                    quae vero, tenetur optio esse accusantium sint!
+                    Voluptatum tempora recusandae est ad voluptate possimus reiciendis quo exercitationem, natus, vero
+                    ex quae, sit odit! Aliquid repudiandae aperiam iste id, tenetur, mollitia natus in distinctio magni
+                    ipsa, temporibus nemo.</p>
+            </section>
+
+            <section>
+                <h2 id="about">About</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptatibus veritatis adipisci
+                    officia
+                    deserunt minus dolorum quaerat libero est itaque ratione incidunt autem laborum quibusdam, similique
+                    delectus.
+                    Dolorem, enim repellendus?
+                    Quis nulla tempora mollitia placeat laudantium repudiandae nihil dignissimos eveniet facilis? Totam
+                    expedita
+                    iusto porro eligendi fuga inventore quod numquam in quibusdam id. Dolores exercitationem, officia
+                    quam minima
+                    corrupti obcaecati.
+                    Repudiandae ipsum iure, quos excepturi dicta doloribus reiciendis libero, rerum rem iste, voluptate
+                    expedita
+                    obcaecati qui necessitatibus ipsa. Consequatur distinctio exercitationem laboriosam minus accusamus
+                    quibusdam
+                    perspiciatis, quam suscipit ut! Inventore.
+                    Hic recusandae, sequi quod est ut placeat incidunt eaque, ab, atque sed ipsum at a qui facilis
+                    aperiam? Aliquam
+                    commodi et iste est consequatur dolor itaque id illo rem ut?
+                    Fuga error, voluptate accusamus possimus neque quis excepturi libero itaque, vero eum nam. Facilis
+                    impedit earum
+                    nihil officia iste perspiciatis quibusdam eaque? A recusandae impedit hic mollitia suscipit nihil
+                    cupiditate!
+                    Natus, dolorum pariatur! Doloremque itaque amet accusamus! Consequatur porro ex dignissimos impedit,
+                    molestiae
+                    corrupti iste perferendis magnam odit ipsum similique repellat fugiat ipsam, fugit ea recusandae ut
+                    alias. Illo,
+                    est.
+                    Voluptatibus excepturi dolor, ullam dignissimos sed, id corrupti animi ad debitis numquam
+                    consequuntur quisquam
+                    sequi, inventore voluptatem nesciunt. Soluta doloribus dolorum porro obcaecati nam, fuga quam error
+                    autem magnam
+                    repudiandae.
+                    Voluptates, natus eos et error exercitationem quasi officiis? Vero minus ipsa quo cupiditate dolor
+                    perspiciatis,
+                    eius distinctio officiis. Dolor aliquam molestiae libero eaque hic quo? Minus quam numquam inventore
+                    magnam!
+                    Doloremque explicabo, unde repellat reiciendis molestias aliquam? Fugiat quas odit ducimus nostrum
+                    obcaecati
+                    blanditiis repellendus tempora natus! Doloremque qui harum suscipit blanditiis? Veritatis quae vero,
+                    tenetur
+                    optio esse accusantium sint!
+                    Voluptatum tempora recusandae est ad voluptate possimus reiciendis quo exercitationem, natus, vero
+                    ex quae, sit
+                    odit! Aliquid repudiandae aperiam iste id, tenetur, mollitia natus in distinctio magni ipsa,
+                    temporibus nemo.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="contact">Contact</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptatibus veritatis adipisci
+                    officia
+                    deserunt minus dolorum quaerat libero est itaque ratione incidunt autem laborum quibusdam, similique
+                    delectus.
+                    Dolorem, enim repellendus?
+                    Quis nulla tempora mollitia placeat laudantium repudiandae nihil dignissimos eveniet facilis? Totam
+                    expedita
+                    iusto porro eligendi fuga inventore quod numquam in quibusdam id. Dolores exercitationem, officia
+                    quam minima
+                    corrupti obcaecati.
+                    Repudiandae ipsum iure, quos excepturi dicta doloribus reiciendis libero, rerum rem iste, voluptate
+                    expedita
+                    obcaecati qui necessitatibus ipsa. Consequatur distinctio exercitationem laboriosam minus accusamus
+                    quibusdam
+                    perspiciatis, quam suscipit ut! Inventore.
+                    Hic recusandae, sequi quod est ut placeat incidunt eaque, ab, atque sed ipsum at a qui facilis
+                    aperiam? Aliquam
+                    commodi et iste est consequatur dolor itaque id illo rem ut?
+                    Fuga error, voluptate accusamus possimus neque quis excepturi libero itaque, vero eum nam. Facilis
+                    impedit earum
+                    nihil officia iste perspiciatis quibusdam eaque? A recusandae impedit hic mollitia suscipit nihil
+                    cupiditate!
+                    Natus, dolorum pariatur! Doloremque itaque amet accusamus! Consequatur porro ex dignissimos impedit,
+                    molestiae
+                    corrupti iste perferendis magnam odit ipsum similique repellat fugiat ipsam, fugit ea recusandae ut
+                    alias. Illo,
+                    est.
+                    Voluptatibus excepturi dolor, ullam dignissimos sed, id corrupti animi ad debitis numquam
+                    consequuntur quisquam
+                    sequi, inventore voluptatem nesciunt. Soluta doloribus dolorum porro obcaecati nam, fuga quam error
+                    autem magnam
+                    repudiandae.
+                    Voluptates, natus eos et error exercitationem quasi officiis? Vero minus ipsa quo cupiditate dolor
+                    perspiciatis,
+                    eius distinctio officiis. Dolor aliquam molestiae libero eaque hic quo? Minus quam numquam inventore
+                    magnam!
+                    Doloremque explicabo, unde repellat reiciendis molestias aliquam? Fugiat quas odit ducimus nostrum
+                    obcaecati
+                    blanditiis repellendus tempora natus! Doloremque qui harum suscipit blanditiis? Veritatis quae vero,
+                    tenetur
+                    optio esse accusantium sint!
+                    Voluptatum tempora recusandae est ad voluptate possimus reiciendis quo exercitationem, natus, vero
+                    ex quae, sit
+                    odit! Aliquid repudiandae aperiam iste id, tenetur, mollitia natus in distinctio magni ipsa,
+                    temporibus nemo.
+                </p>
+            </section>
+
+            <section>
+                <h2 id="testimonial">Testimonial</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptatibus veritatis adipisci
+                    officia
+                    deserunt minus dolorum quaerat libero est itaque ratione incidunt autem laborum quibusdam, similique
+                    delectus.
+                    Dolorem, enim repellendus?
+                    Quis nulla tempora mollitia placeat laudantium repudiandae nihil dignissimos eveniet facilis? Totam
+                    expedita
+                    iusto porro eligendi fuga inventore quod numquam in quibusdam id. Dolores exercitationem, officia
+                    quam minima
+                    corrupti obcaecati.
+                    Repudiandae ipsum iure, quos excepturi dicta doloribus reiciendis libero, rerum rem iste, voluptate
+                    expedita
+                    obcaecati qui necessitatibus ipsa. Consequatur distinctio exercitationem laboriosam minus accusamus
+                    quibusdam
+                    perspiciatis, quam suscipit ut! Inventore.
+                    Hic recusandae, sequi quod est ut placeat incidunt eaque, ab, atque sed ipsum at a qui facilis
+                    aperiam? Aliquam
+                    commodi et iste est consequatur dolor itaque id illo rem ut?
+                    Fuga error, voluptate accusamus possimus neque quis excepturi libero itaque, vero eum nam. Facilis
+                    impedit earum
+                    nihil officia iste perspiciatis quibusdam eaque? A recusandae impedit hic mollitia suscipit nihil
+                    cupiditate!
+                    Natus, dolorum pariatur! Doloremque itaque amet accusamus! Consequatur porro ex dignissimos impedit,
+                    molestiae
+                    corrupti iste perferendis magnam odit ipsum similique repellat fugiat ipsam, fugit ea recusandae ut
+                    alias. Illo,
+                    est.
+                    Voluptatibus excepturi dolor, ullam dignissimos sed, id corrupti animi ad debitis numquam
+                    consequuntur quisquam
+                    sequi, inventore voluptatem nesciunt. Soluta doloribus dolorum porro obcaecati nam, fuga quam error
+                    autem magnam
+                    repudiandae.
+                    Voluptates, natus eos et error exercitationem quasi officiis? Vero minus ipsa quo cupiditate dolor
+                    perspiciatis,
+                    eius distinctio officiis. Dolor aliquam molestiae libero eaque hic quo? Minus quam numquam inventore
+                    magnam!
+                    Doloremque explicabo, unde repellat reiciendis molestias aliquam? Fugiat quas odit ducimus nostrum
+                    obcaecati
+                    blanditiis repellendus tempora natus! Doloremque qui harum suscipit blanditiis? Veritatis quae vero,
+                    tenetur
+                    optio esse accusantium sint!
+                    Voluptatum tempora recusandae est ad voluptate possimus reiciendis quo exercitationem, natus, vero
+                    ex quae, sit
+                    odit! Aliquid repudiandae aperiam iste id, tenetur, mollitia natus in distinctio magni ipsa,
+                    temporibus nemo.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const navBarBtn = document.querySelector('button.hamburger')
+        const navBar = document.querySelector('nav')
+
+        navBarBtn.onclick = () => {
+            navBarBtn.classList.toggle('active')
+            navBar.classList.toggle('active')
+        }
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav > a");
+        const contentContainer = document.querySelector('.container')
+
+        const offsetTops = []
+        sections.forEach(section => {
+            offsetTops.push(section.offsetTop)
+        })
+
+        const aHalfHeight = window.innerHeight / 2
+
+        const throttle = (fn, wait) => {
+            let lastTime = 0;
+            return function (...args) {
+                const now = new Date().getTime();
+                if (now - lastTime >= wait) {
+                    lastTime = now;
+                    fn.apply(this, args);
+                }
+            };
+        }
+
+        const onScrollHandler = () => {
+            const scrollPosition = contentContainer.scrollTop + aHalfHeight; // move "brower eye" to center, same like human eye
+
+            if (scrollPosition >= offsetTops[3]) {
+                console.log('section', 3);
+                const current = document.querySelector('nav > a.active')
+                current.classList.remove('active');
+                navLinks[3].classList.add('active')
+            } else if (scrollPosition >= offsetTops[2]) {
+                console.log('section', 2);
+                const current = document.querySelector('nav > a.active')
+                current.classList.remove('active');
+                navLinks[2].classList.add('active')
+            } else if (scrollPosition >= offsetTops[1]) {
+                console.log('section', 1);
+                const current = document.querySelector('nav > a.active')
+                current.classList.remove('active');
+                navLinks[1].classList.add('active')
+            } else if (scrollPosition >= offsetTops[0]) {
+                console.log('section', 0);
+                const current = document.querySelector('nav > a.active')
+                current.classList.remove('active');
+                navLinks[0].classList.add('active')
+            }
+        }
+
+        contentContainer.addEventListener("scroll", throttle(onScrollHandler, 100));
+
+    </script>
+</body>
+
+</html>
