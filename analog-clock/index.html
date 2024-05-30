@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:aqua;
+        }
+
+        div {
+            position: relative;
+        }
+
+        .needle {
+            position: absolute;
+            top: 115px;
+            left: 108px;
+            bottom: 119px;
+            transform-origin: 85.185% 13.1147540984%;
+            animation: run 60s infinite;
+        }
+
+        @keyframes run {
+            from {
+                transform: translateX(-50%) rotate(0);
+            } to {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="clock.svg" alt="clock">
+        <img class="needle" src="needle.svg" alt="needle">
+    </div>
+</body>
+</html>
