@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            position: relative;
+        }
+
+        .container {
+            height: 500px;
+            width: 751px;
+            border-radius: 10px;
+            background-color: rgb(184, 218, 248);
+            overflow-x: scroll;
+            display: flex;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        img {
+            height: 100%;
+        }
+
+        button {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: none;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.801);
+        }
+
+        button.next {
+            right: 20px;
+        }
+
+        button.prev {
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button type="button" class="next"><span class="material-symbols-outlined">
+                arrow_forward_ios
+            </span></button>
+        <button type="button" class="prev">
+            <span class="material-symbols-outlined">
+                arrow_back_ios
+            </span>
+        </button>
+        <div class="container">
+            <img src="https://img.freepik.com/free-photo/mesmerizing-macro-picture-little-black-satyrium-butterfly-pink-flower_181624-27555.jpg?t=st=1717047459~exp=1717051059~hmac=63c0da5353fdff4aeb440d03b8742c4c29c5f6a632567328bc38d7f14df91d51&w=1060"
+                alt="slide1">
+            <img src="https://img.freepik.com/free-photo/selective-focus-shot-butterfly-perched-red-ixora-flower_181624-51031.jpg?t=st=1717047558~exp=1717051158~hmac=bd0fa75301a300bf2dc06f1c1aaaeffc8e772138e3131c269eb822766a6e660f&w=1060"
+                alt="slide2">
+            <img src="https://img.freepik.com/free-photo/beautiful-aerial-shot-fronalpstock-mountains-switzerland-beautiful-pink-blue-sky_181624-9315.jpg?t=st=1717047569~exp=1717051169~hmac=a78e390246aab84cba104e3a3df6e58086a90b8c84e5a5505d7bd72eee7a89e2&w=1060"
+                alt="slide3">
+            <img src="https://img.freepik.com/free-photo/closeup-shot-orange-butterfly-flower_181624-25424.jpg?t=st=1717047584~exp=1717051184~hmac=7fdb569f2d8c233ea420c996bf6566fce8fe795201caee85329587d09f5e6a7e&w=1060"
+                alt="slide4">
+            <img src="https://img.freepik.com/free-photo/butterfly-with-open-wings_1160-247.jpg?t=st=1717047619~exp=1717051219~hmac=a68ac4128647e35ecaac074bf3c37674b643340c744377284af8a4370615f894&w=1060"
+                alt="slide5">
+        </div>
+    </main>
+
+    <script>
+        const gallery = document.querySelector('.container');
+        const nextBtn = document.querySelector('button.next')
+        const prevBtn = document.querySelector('button.prev')
+
+        const slideWidth = gallery.offsetWidth;
+        const slideCount = gallery.children.length;
+
+        let swipedSlide = 0
+
+        gallery.scrollTo(0, 0) //reset
+
+        nextBtn.onclick = () => {
+            if (swipedSlide === slideCount - 1) {
+                return;
+            }
+            gallery.scrollTo({
+                left: ++swipedSlide * slideWidth,
+                behavior: "smooth"
+            })
+        }
+
+        prevBtn.onclick = () => {
+            if (swipedSlide === 0) {
+                return;
+            }
+            gallery.scrollTo({
+                left: --swipedSlide * slideWidth,
+                behavior: "smooth"
+            })
+        }
+    </script>
+</body>
+
+</html>
