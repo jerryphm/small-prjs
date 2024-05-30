@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .container {
+            width: 300px;
+            height: 15px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: rgb(163, 171, 228);
+        }
+
+        .track {
+            height: 100%;
+            background-color: #2a90f0;
+            width: 0%;
+            border-radius: 20px;
+            transition: all 0.2s linear;
+        }
+
+        .percent {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Start</button>
+    <div class="container">
+        <div class="track"></div>
+    </div>
+    <span class="percent">0%</span>
+
+    <script>
+        const percentText = document.querySelector('span.percent');
+        const track = document.querySelector('.track')
+        const startBtn = document.querySelector('button')
+
+        let percent = 0;
+
+        startBtn.onclick = () => {
+            startBtn.disabled = true;
+            const iv = setInterval(() => {
+                if (percent >= 100) {
+                    clearInterval(iv);
+                    startBtn.onclick = null;
+
+                    return;
+                }
+                percent += Math.round(Math.random() * 10);
+                const value = Math.min(percent, 100) + '%';
+                percentText.innerHTML = value
+                track.style.width = value
+            }, Math.random() * 1000);
+        }
+    </script>
+</body>
+
+</html>
